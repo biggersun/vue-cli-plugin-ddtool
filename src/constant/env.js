@@ -8,6 +8,7 @@ const srcDir = resolve(package, 'src');
 const scriptsDir = resolve(srcDir, 'scripts');
 
 module.exports = {
+    sourceDir,
     cliService,
     package,
     scriptsDir,
