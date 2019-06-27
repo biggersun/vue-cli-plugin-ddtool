@@ -1,7 +1,7 @@
 const { log, execAsync } = require('./utils/util');
 const { cliService, scriptsDir } = require('./constant/env');
 
-function development(args, api) {
+function development(args, config, api) {
     const {
         env,
     } = args;
@@ -11,7 +11,10 @@ function development(args, api) {
         return;
     }
 
-    execAsync(`sh ${scriptsDir}/development.sh ${cliService} ${env}`);
+    log(JSON.stringify(config));
+
+    // execAsync(`sh ${scriptsDir}/development.sh ${cliService} ${env}`);
+    execAsync(`${cliService} serve`);
 }
 
 module.exports = development;
