@@ -28,8 +28,7 @@ function initConfiguration() {
     return config;
 }
 
-module.exports = (api, projectOptions) => {
-    console.log(projectOptions);
+let plugin = (api, projectOptions) => {
     const config = initConfiguration();
 
     api.registerCommand(
@@ -42,17 +41,7 @@ module.exports = (api, projectOptions) => {
             },
         },
         args => {
-            console.log(args);
-            // const webpackConfig = api.resolveWebpackConfig();
-            // log(JSON.stringify(webpackConfig.devServer));
-            // webpackConfig.sunxiaoxu = '=====123123';
-            // webpackConfig.devServer = {
-            //     proxy: config.proxyConfig(args.env),
-            // }
-
-            api.configureWebpack(function test(webpackConfig) {
-                console.log('webpackConfig', webpackConfig)
-            });
+            console.log('dev args', args);
 
             require('./development')(args, config, api);
         },
@@ -73,4 +62,6 @@ module.exports = (api, projectOptions) => {
             require('./deploy')(args, config, api);
         },
     );
-};
+}
+
+module.exports = plugin;

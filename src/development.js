@@ -11,9 +11,8 @@ function development(args, config, api) {
         return;
     }
 
-    log(JSON.stringify(config));
-
     // execAsync(`sh ${scriptsDir}/development.sh ${cliService} ${env}`);
+    process.env.NODE_ENV = env;
     execAsync(`${cliService} serve`);
 }
 
