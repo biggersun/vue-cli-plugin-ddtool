@@ -4,7 +4,10 @@
     "description": "vue-cli-plugin dev-server tools & deploy script for complex env",
     "main": "./src",
     "scripts": {
-        "prettier": "prettier -c --write '**/*'"
+        "lint": "eslint ./**/*.js",
+        "lint:fix": "eslint --fix ./**/*.js",
+        "prettier": "prettier -c --write '**/*'",
+        "lint-staged": "lint-staged"
     },
     "keywords": [
         "vue",
@@ -15,9 +18,31 @@
     "license": "MIT",
     "dependencies": {
         "chalk": "^2.4.2",
-        "execa": "^2.0.0"
+        "execa": "^2.0.0",
+        "scp2": "^0.5.0",
+        "yargs-parser": "^13.1.1"
     },
     "devDependencies": {
+        "eslint": "5.3.0",
+        "eslint-config-airbnb-base": "13.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "husky": "^2.7.0",
+        "lint-staged": "^8.2.1",
         "prettier": "^1.18.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "yarn run lint:fix",
+            "git add"
+        ],
+        "**/*.{js,jsx,tsx,ts,less,md,json}": [
+            "prettier --write",
+            "git add"
+        ]
     }
 }
