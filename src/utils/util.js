@@ -5,6 +5,7 @@ const log = (...arg) => console.log(chalk.blue(...arg)); // eslint-disable-line
 
 const execAsync = async (command) => {
     let res;
+
     try {
         res = await execa.command(command, { stdio: 'inherit' });
     } catch (error) {

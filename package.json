@@ -6,7 +6,8 @@
     "scripts": {
         "lint": "eslint ./**/*.js",
         "lint:fix": "eslint --fix ./**/*.js",
-        "prettier": "prettier -c --write '**/*'"
+        "prettier": "prettier -c --write '**/*'",
+        "lint-staged": "lint-staged"
     },
     "keywords": [
         "vue",
@@ -31,12 +32,17 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
     "lint-staged": {
-        "*.{js}": [
-            "yarn run lint",
+        "*.js": [
+            "yarn run lint:fix",
+            "git add"
+        ],
+        "**/*.{js,jsx,tsx,ts,less,md,json}": [
+            "prettier --write",
             "git add"
         ]
     }

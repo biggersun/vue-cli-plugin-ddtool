@@ -21,8 +21,8 @@ function initConfiguration() {
     } else {
         log(
             chalk.black.bgGreen('error')
-            + chalk.green(' 没有找到 ddtool.js 请添加 ddtool.js 配置, 查看详细配置 ')
-            + chalk.blue.underline.bold('https://github.com/biggersun/vue-cli-plugin-ddtool/blob/master/README.md'),
+                + chalk.green(' 没有找到 ddtool.js 请添加 ddtool.js 配置, 查看详细配置')
+                + chalk.blue.underline.bold('https://github.com/biggersun/vue-cli-plugin-ddtool/blob/master/README.md'),
         );
         return undefined;
     }
