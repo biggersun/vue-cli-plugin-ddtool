@@ -16,6 +16,9 @@
     ],
     "author": "sxxlovelive@gmail.com",
     "license": "MIT",
+    "files": [
+        "src"
+    ],
     "dependencies": {
         "chalk": "^2.4.2",
         "execa": "^2.0.0",
