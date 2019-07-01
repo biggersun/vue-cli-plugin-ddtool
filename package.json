@@ -16,6 +16,13 @@
     ],
     "author": "sxxlovelive@gmail.com",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/biggersun/vue-cli-plugin-ddtool"
+    },
+    "bugs": {
+        "url": "https://github.com/biggersun/vue-cli-plugin-ddtool/issues"
+    },
     "files": [
         "src"
     ],
