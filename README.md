@@ -18,14 +18,30 @@ vue-cli-service deploy --env=test341
 module.exports = {
     platMap: {
         test341: {
-            domain: 'http://test341.deveploment.com', // ip
+            domain: 'http://test341.deveploment.com',
             ip: 'xxx.xxx.x.xx',
+            username: 'xxx',
+            password: 'xxxxxx',
             sshPort: 22,
-            deployPath: '/home/test341',
+            serverPath: '/home/test341',
         },
     },
-    proxyConfig: {
-        // webpack-dev-server proxy config
+    // 可选配置
+    proxyConfig: (env: keyof platMap) => {
+        // 通过 env 获取 proxy host 动态配置本地开发 api 代理
+        // return webpack-dev-server-proxy-config;
+    },
+};
+```
+
+```javascript
+// vue.config.js
+const { proxyConfig } = require('ddtool');
+
+module.exports = {
+    pages: buildFiles,
+    devServer: {
+        proxy: proxyConfig(process.env.NODE_ENV)
     },
 };
 ```

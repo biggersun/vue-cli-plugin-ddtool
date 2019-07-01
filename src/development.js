@@ -1,7 +1,7 @@
 const { log, execAsync } = require('./utils/util');
-const { cliService, scriptsDir } = require('./constant/env');
+const { cliService } = require('./constant/env');
 
-function development(args, config, api) {
+function development(args) {
     const {
         env,
     } = args;
@@ -11,7 +11,6 @@ function development(args, config, api) {
         return;
     }
 
-    // execAsync(`sh ${scriptsDir}/development.sh ${cliService} ${env}`);
     process.env.NODE_ENV = env;
     execAsync(`${cliService} serve`);
 }

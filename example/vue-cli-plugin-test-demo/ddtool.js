@@ -2,8 +2,10 @@ const platMap = {
     test341: {
         domain: 'http://test341.deveploment.com', // ip
         ip: 'xxx.xxx.x.xx',
+        username: 'homework',
+        password: 'dsds',
         sshPort: 22,
-        deployPath: '/home/test341',
+        serverPath: '/home/test341',
     },
 };
 
