@@ -3,6 +3,8 @@
 ## usage
 
 ```bash
+# 安装包
+npm install vue-cli-plugin-ddtool -D
 # 启动本地开发
 vue-cli-service dev --env=test341
 # 发布开发服务器
@@ -39,9 +41,8 @@ module.exports = {
 const { proxyConfig } = require('ddtool');
 
 module.exports = {
-    pages: buildFiles,
     devServer: {
-        proxy: proxyConfig(process.env.NODE_ENV)
+        proxy: proxyConfig(process.env.NODE_ENV),
     },
 };
 ```
