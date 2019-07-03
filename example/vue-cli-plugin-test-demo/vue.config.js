@@ -14,5 +14,4 @@ if (cmdType === 'development' || /^test/.test(cmdType)) {
     };
 }
 
-console.log(config);
 module.exports = config;

@@ -13,15 +13,14 @@ module.exports = {
     platMap,
     proxyConfig(plat) {
         const host = platMap[plat].domain;
-        console.log(host);
 
         return {
           '/api': {
-            target: host + 'parentactivity',
+            target: host + 'space',
             changeOrigin: true,
             ws: true,
             pathRewrite: {
-              '^/parentactivity': ''
+              '^/space': ''
             }
           },
         };
