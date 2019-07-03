@@ -10,8 +10,8 @@
         "lint-staged": "lint-staged"
     },
     "keywords": [
-        "vue",
-        "cli-plugin",
+        "vue-cli-plugin",
+        "develoment",
         "deploy"
     ],
     "author": "sxxlovelive@gmail.com",
