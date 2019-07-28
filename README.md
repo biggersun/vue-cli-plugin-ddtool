@@ -53,6 +53,21 @@ module.exports = {
 
 `proxyConfig`: 返回一个 [webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/#devserver-proxy) 的 `proxy config` 对象，也可以返回一个返回对象的函数。
 
+## Options
+
+```typescript
+// ddtool.js
+
+// 多页应用配置
+{
+    multiPage: boolean,
+    pages: glob  = './src/modules/*',
+    pagesEntry: glob = './src/module/**/main.js',
+    pagesTemplate: glob = './src/module/**/index.{pug,html}',
+    mainBranch: string = 'master',
+}
+```
+
 ## 🔗 Links
 
 -   [Example](https://github.com/biggersun/vue-cli-plugin-ddtool/tree/master/example/vue-cli-plugin-test-demo)

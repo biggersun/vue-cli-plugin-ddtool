@@ -30,7 +30,7 @@ const deploy = async (args, config) => {
         path: plat.serverPath,
     };
 
-    client.scp('dist/', params, (err) => {
+    client.scp('dist/', params, err => {
         if (err) {
             logger.warn('发布失败');
             console.log(err); // eslint-disable-line

@@ -3,7 +3,7 @@ const chalk = require('chalk');
 
 const log = (...arg) => console.log(chalk.blue(...arg)); // eslint-disable-line
 
-const execAsync = async (command) => {
+const execAsync = async command => {
     let res;
 
     try {

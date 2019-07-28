@@ -1,5 +1,7 @@
 node_modules
 example/**/dist
 src/scripts
+output.js
 yarn-error.log
-yarn-lock.log
+yarn.lock
+package-lock.json
