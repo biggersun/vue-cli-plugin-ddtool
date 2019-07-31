@@ -70,5 +70,5 @@ module.exports = {
 
 ## 🔗 Links
 
--   [Example](https://github.com/biggersun/vue-cli-plugin-ddtool/tree/master/example/vue-cli-plugin-test-demo)
+-   [Example](https://github.com/biggersun/vue-cli-plugin-ddtool/tree/master/example)
 -   [Vue CLI3](https://cli.vuejs.org/zh/guide/)
