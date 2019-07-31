@@ -1,10 +1,12 @@
 module.exports = {
-    extends: ['eslint-config-airbnb-base'],
+    extends: ['eslint-config-airbnb-base', 'prettier'],
+    plugins: ['prettier'],
     rules: {
         semi: ['error'],
-        'max-len': ['error', 120],
+        'max-len': ['error', 200],
         'no-const-assign': 'error',
         indent: ['error', 4],
-        'no-new': ['off']
+        'no-new': ['off'],
+        'prettier/prettier': 'error',
     },
 };
