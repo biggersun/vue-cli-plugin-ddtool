@@ -1,18 +1,14 @@
 const client = require('scp2');
-const { execAsync } = require('./utils/util');
+const { execAsync, getCustomerArgsString } = require('./utils/util');
+const { cliService } = require('./constant/env');
 const logger = require('./utils/log');
 
 const deploy = async (args, config) => {
-    /**
-     * build 代码
-     * - 是否增量build
-     * - 拉取git历史 增量build
-     * */
     // 发布代码
     logger.info('正在build项目');
 
     try {
-        await execAsync('npm run build');
+        await execAsync(`${cliService} build ${getCustomerArgsString(args)}`);
     } catch (error) {
         logger.warn('build 失败');
         return;

@@ -8,5 +8,12 @@ module.exports = {
         indent: ['error', 4],
         'no-new': ['off'],
         'prettier/prettier': 'error',
+        'prefer-const': [
+            'error',
+            {
+                destructuring: 'all',
+                ignoreReadBeforeAssign: false,
+            },
+        ],
     },
 };

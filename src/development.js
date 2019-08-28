@@ -1,4 +1,4 @@
-const { log, execAsync } = require('./utils/util');
+const { log, execAsync, getCustomerArgsString } = require('./utils/util');
 const { cliService } = require('./constant/env');
 
 function development(
@@ -6,21 +6,18 @@ function development(
     config, // eslint-disable-line
     api, // eslint-disable-line
 ) {
-    const { env } = args;
-
+    const {
+        env,
+        // full, pages
+    } = args;
     if (!env) {
         log('请添加 --env 选项 \n -h 查看更多 option');
         return;
     }
 
     process.env.NODE_ENV = env;
-    // console.log(config);
-    // const {
-    //     multiPage,
-    //     mianBranch = 'master',
-    // } = config;
 
-    execAsync(`${cliService} serve`);
+    execAsync(`${cliService} serve ${getCustomerArgsString(args)}`);
 }
 
 module.exports = development;

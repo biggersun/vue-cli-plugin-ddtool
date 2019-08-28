@@ -2,8 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const glob = require('glob');
+const yargs = require('yargs-parser');
 const { sourceDir } = require('./constant/env');
 const { log } = require('./utils/util');
+const defaultConfig = require('./defaultConfig');
 
 function getSources(p) {
     return path.resolve(sourceDir, p);
@@ -30,13 +32,31 @@ function initConfiguration() {
         return undefined;
     }
 
-    return config;
+    return {
+        ...defaultConfig,
+        ...config,
+    };
 }
 
 function getPages() {
-    const { pages = './src/modules/*', pagesEntry = './main.js', pagesTemplate = './index.{pug,html}' } = initConfiguration();
+    const argvs = yargs(process.argv);
+    const config = initConfiguration();
+    const { pages, pagesEntry, pagesTemplate } = config;
 
-    const pagesFolders = glob.sync(getSources(pages));
+    let pagesFolders = glob.sync(getSources(pages));
+
+    let { full, pages: pagesArgv } = argvs;
+
+    if (!full) {
+        if (pagesArgv) {
+            pagesArgv = pagesArgv.split(',');
+            pagesFolders = pagesFolders.filter(folder => {
+                return pagesArgv.findIndex(page => new RegExp(`${page}$`).test(folder)) > -1;
+            });
+        }
+    }
+
+    log(JSON.stringify(pagesFolders));
 
     const pagesConfig = pagesFolders.reduce((pre, folder) => {
         const entry = path.resolve(folder, pagesEntry);
@@ -67,4 +87,5 @@ function getPages() {
 module.exports = {
     initConfiguration,
     getPages,
+    getSources,
 };

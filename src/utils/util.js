@@ -19,7 +19,21 @@ const execAsync = async command => {
     return res;
 };
 
+function getCustomerArgsString(args) {
+    const customerArgs = ['full', 'pages'];
+    let argsString = '';
+
+    Object.keys(args).forEach(key => {
+        if (customerArgs.includes(key)) {
+            argsString += ` --${key} ${args[key]}`;
+        }
+    });
+
+    return argsString;
+}
+
 module.exports = {
     execAsync,
     log,
+    getCustomerArgsString,
 };
