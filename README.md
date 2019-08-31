@@ -13,6 +13,25 @@ vue-cli-service dev --env=test341
 vue-cli-service deploy --env=test341
 ```
 
+### cli
+```bash
+  Usage: vue-cli-service dev [options]
+
+  Options:
+
+    --env     环境设置和 platmap 的 key 对应(development service proxy address)
+    --pages   多页模式下增量启动开发服务配置(development pages name --pages page1,page2,page3)
+    --full    多页模式下强制使用全量,会启动所有的页面(do not use incremental development)
+
+  Usage: vue-cli-service deploy [options]
+
+  Options:
+
+    --env     环境设置和 platmap 的 key 对应(deploy service key)
+    --pages   多页模式下增量启动开发服务配置(deploy pages name page1,page2,page3)
+    --full    多页模式下强制使用全量,会启动所有的页面(do not use incremental deploy)
+```
+
 ### `ddtool.js` 配置文件
 
 示例配置：
@@ -59,11 +78,14 @@ module.exports = {
 // ddtool.js
 
 // 多页应用配置
-{
-    multiPage: boolean,
+module.exports = {
+    multiPage: true,
     pages: glob  = './src/modules/*',
-    pagesEntry: glob = './src/module/**/main.js',
-    pagesTemplate: glob = './src/module/**/index.{pug,html}',
+    // 页面入口 相对pages路径
+    pagesEntry: glob = './main.js',
+    // 页面模板 相对pages路径
+    pagesTemplate: glob = './index.{pug,html}',
+    // git主分支 用于增量更新,默认会自动根据git diff 启动增量服务
     mainBranch: string = 'master',
 }
 ```
