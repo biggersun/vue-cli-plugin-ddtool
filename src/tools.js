@@ -56,8 +56,6 @@ function getPages() {
         }
     }
 
-    log(JSON.stringify(pagesFolders));
-
     const pagesConfig = pagesFolders.reduce((pre, folder) => {
         const entry = path.resolve(folder, pagesEntry);
         const template = glob.sync(path.resolve(folder, pagesTemplate))[0];

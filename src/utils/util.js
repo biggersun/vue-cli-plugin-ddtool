@@ -13,7 +13,7 @@ const execAsync = async command => {
         return undefined;
     }
 
-    const { stdout } = res;
+    const { stdout = '' } = res;
     log(stdout);
 
     return res;

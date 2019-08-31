@@ -12,9 +12,9 @@ const plugin = api => {
             description: 'start local development service',
             usage: 'vue-cli-service dev [options]',
             options: {
-                '--env': 'development service proxy address',
-                '--pages': 'development pages name --pages page1,page2,page3',
-                '--full': 'do not use incremental development',
+                '--env': '环境设置和 platmap 的 key 对应(development service proxy address)',
+                '--pages': '多页模式下增量启动开发服务配置(development pages name --pages page1,page2,page3)',
+                '--full': '多页模式下强制使用全量,会启动所有的页面(do not use incremental development)',
             },
         },
         async args => {
@@ -34,9 +34,9 @@ const plugin = api => {
             description: 'deploy tools',
             usage: 'vue-cli-service deploy [options]',
             options: {
-                '--env': 'deploy service key',
-                '--pages': 'deploy pages name page1,page2,page3',
-                '--full': 'do not use incremental deploy',
+                '--env': '环境设置和 platmap 的 key 对应(deploy service key)',
+                '--pages': '多页模式下增量启动开发服务配置(deploy pages name page1,page2,page3)',
+                '--full': '多页模式下强制使用全量,会启动所有的页面(do not use incremental deploy)',
             },
         },
         async args => {
