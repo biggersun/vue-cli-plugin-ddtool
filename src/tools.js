@@ -47,12 +47,17 @@ function getPages() {
 
     let { full, pages: pagesArgv } = argvs;
 
+    log(pagesArgv);
+
     if (!full) {
-        if (pagesArgv) {
+        if (typeof pagesArgv === 'string' && pagesArgv.length > 0) {
             pagesArgv = pagesArgv.split(',');
-            pagesFolders = pagesFolders.filter(folder => {
+            const filterRes = pagesFolders.filter(folder => {
                 return pagesArgv.findIndex(page => new RegExp(`${page}$`).test(folder)) > -1;
             });
+            if (filterRes.length > 0) {
+                pagesFolders = filterRes;
+            }
         }
     }
 

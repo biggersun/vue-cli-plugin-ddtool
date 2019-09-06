@@ -14,6 +14,7 @@ vue-cli-service deploy --env=test341
 ```
 
 ### cli
+
 ```bash
   Usage: vue-cli-service dev [options]
 
@@ -80,14 +81,14 @@ module.exports = {
 // 多页应用配置
 module.exports = {
     multiPage: true,
-    pages: glob  = './src/modules/*',
+    pages: glob = './src/module/*',
     // 页面入口 相对pages路径
     pagesEntry: glob = './main.js',
     // 页面模板 相对pages路径
     pagesTemplate: glob = './index.{pug,html}',
     // git主分支 用于增量更新,默认会自动根据git diff 启动增量服务
     mainBranch: string = 'master',
-}
+};
 ```
 
 ## 🔗 Links
