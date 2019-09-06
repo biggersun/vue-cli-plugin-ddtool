@@ -1,6 +1,6 @@
 {
     "name": "vue-cli-plugin-ddtool",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "vue-cli-plugin dev-server tools & deploy script for complex env",
     "main": "./src",
     "scripts": {
